@@ -1,0 +1,9 @@
+blinker
+click
+colorama
+flask
+itsdangerous
+jinja2
+markupsafe
+werkzeug
+gunicorn
