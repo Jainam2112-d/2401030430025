@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday 💖</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</head>
+
+<body onload="startEffects()">
+
+  <div id="particles-js"></div>
+
+  <div class="hero">
+      <h1 class="glow">🎂 Happy Birthday, <span id="name">My Queen!</span> 💕</h1>
+      <p class="tagline">You're the reason smiles exist 🌸</p>
+
+      <audio autoplay loop>
+          <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
+      </audio>
+
+      <div class="buttons">
+          <a href="/gallery" class="btn">📸 Our Memories</a>
+          <a href="/wishes" class="btn">💌 Birthday Wishes</a>
+          <a href="/letter" class="btn">💖 Read My Letter</a>
+
+      </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

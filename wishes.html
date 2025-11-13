@@ -1,0 +1,111 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Birthday Wishes 💌</title>-->
+<!--  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--  <h1 class="glow">💖 Leave Your Birthday Wish!</h1>-->
+
+<!--  <form method="POST" class="wish-form">-->
+<!--      <input type="text" name="name" placeholder="Your Name" required>-->
+<!--      <textarea name="message" placeholder="Your Message..." required></textarea>-->
+<!--      <button type="submit" class="btn">Send Wish 🎉</button>-->
+<!--  </form>-->
+
+<!--  <div class="wish-list">-->
+<!--      {% for wish in wishes %}-->
+<!--      <div class="wish-card">-->
+<!--          <strong>{{ wish.name }}</strong>-->
+<!--          <p>{{ wish.message }}</p>-->
+<!--      </div>-->
+<!--      {% endfor %}-->
+<!--  </div>-->
+
+<!--  <a href="/" class="back-btn">⬅ Back</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Birthday Wish 💌</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      background: radial-gradient(circle, #ffb6c1, #ff69b4, #ff1493);
+      color: white;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    textarea {
+      width: 80%;
+      max-width: 500px;
+      height: 150px;
+      border-radius: 15px;
+      border: none;
+      padding: 15px;
+      font-size: 1.1em;
+      outline: none;
+      resize: none;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn {
+      margin-top: 20px;
+      background-color: white;
+      color: #ff1493;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff69b4;
+      color: white;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>💖 Send Me Your Birthday Wish 💖</h1>
+  <p>Write something sweet below and hit send — it’ll reach me directly on WhatsApp 💬</p>
+
+  <textarea id="wishText" placeholder="Type your birthday wish here..."></textarea><br>
+
+  <button class="btn" onclick="sendToWhatsApp()">Send 💌</button>
+
+  <script>
+    function sendToWhatsApp() {
+      let message = document.getElementById('wishText').value;
+      if (message.trim() === "") {
+        alert("Please write your wish before sending 💕");
+        return;
+      }
+
+      // 🔹 Replace this with YOUR WhatsApp number (with country code, no + sign)
+      let phoneNumber = "919328868549";
+      let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

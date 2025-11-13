@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Memories 📸</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1 class="glow">📸 Our Beautiful Memories</h1>
+
+  <div class="fade-carousel">
+    {% set captions = [
+      "✨ You were this tiny bundle of joy — and still the same sunshine today ✨",
+      "💖 Every smile of yours lights up my whole world 💖",
+      "🌸 Childhood memories, timeless love, endless laughter 🌸",
+      "🌈 Every silly face, every giggle — forever in my heart 🌈",
+      "💫 Some memories never fade, they just sparkle brighter 💫",
+      "☀️ You make ordinary days feel like sunshine ☀️",
+      "🦋 From laughter to late-night talks — my favorite memories 🦋",
+      "💐 Every photo, a chapter of our beautiful story 💐",
+      "🎈 You are my reason to smile every single day 🎈",
+      "❤️ My forever person, my favorite memory ❤️"
+    ] %}
+
+    {% for i in range(1, 11) %}
+    <div class="fade-slide{% if loop.first %} active{% endif %}">
+      <img src="{{ url_for('static', filename='images/photo' ~ i ~ '.jpg') }}" alt="Memory {{ i }}">
+      <p class="caption">{{ captions[i-1] }}</p>
+    </div>
+    {% endfor %}
+
+    <button class="fade-prev" onclick="changeSlide(-1)">&#10094;</button>
+    <button class="fade-next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+
+  <a href="/" class="back-btn">⬅ Back</a>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!-- 💗 Hidden Surprise Heart -->
+<div class="secret-heart" onclick="revealSurprise()">💗</div>
+
+<!-- Hidden Surprise Message -->
+<div id="surprise-box" class="hidden">
+  <div class="surprise-content">
+    <h2>💞 A Secret Just for You 💞</h2>
+    <p>
+      You’ve always been my favorite chapter —
+      and every day with you feels like a new page in our story.
+      No matter where life takes us,
+      you’ll always have a special place in my heart. ❤️
+    </p>
+    <button onclick="closeSurprise()" class="btn">Close</button>
+  </div>
+</div>
+
+</body>
+</html>
+
